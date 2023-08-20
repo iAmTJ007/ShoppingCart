@@ -19,6 +19,7 @@ body{
     background-color: white;
     color: black;
     padding: 0.3rem 0.3rem;
+    border-radius: 0.4rem;
 }
 .cartAmount{
     position: absolute;/*position absolute will put the element relative to the nearest parent which has relative property*/
@@ -28,7 +29,16 @@ body{
     font-size: 1rem;
     background-color: red;
     padding: 0.2rem 0.2rem;
-    
-    
-    
+    border-radius: 0.8rem;
+}
+
+.shop{
+    display: grid;
+    grid-template-columns: repeat(4,14rem);
+    padding-top: 5rem;
+    gap: 3rem;
+    justify-content: center;
+}
+.items{
+    border: 2px solid #212529;
 }
