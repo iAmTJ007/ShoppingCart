@@ -39,6 +39,29 @@ body{
     gap: 3rem;
     justify-content: center;
 }
+@media(max-width:1020px){
+    .shop{
+        grid-template-columns: repeat(2,14rem);
+    }
+}
+@media(max-width:550px){
+    .shop{
+        grid-template-columns: repeat(1,14rem);
+    }
+}
 .items{
     border: 2px solid #212529;
+}
+.details{
+    padding: 0.5rem;
+}
+.price-quantity{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttons{
+    display: flex;
+    gap: 0.5rem;
 }
