@@ -1,5 +1,9 @@
 let shop=document.getElementById('shop');
 
+let basket=[{
+
+}]
+
 let shopItemsData=[{
     id: "casualshirt",
     name: "Casual Shirt",
@@ -38,7 +42,7 @@ let generateShop=()=>{
             <h2>$ ${x.price}</h2>
             <div class="buttons">
                 <i class="bi bi-dash-lg"></i>
-                <div class="quantity">0</div>
+                <div id:${x.id} class="quantity">0</div>
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
@@ -46,3 +50,5 @@ let generateShop=()=>{
     }).join(""))
 }
 generateShop();
+
+increment()
