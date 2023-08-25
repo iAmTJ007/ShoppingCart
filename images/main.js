@@ -1,8 +1,6 @@
 let shop=document.getElementById('shop');
 
-let basket=[{
-
-}]
+let basket=[];
 
 let shopItemsData=[{
     id: "casualshirt",
@@ -30,9 +28,11 @@ let shopItemsData=[{
     img:"images/img-4.jpg"
 }];
 
+
+
 let generateShop=()=>{
     return (shop.innerHTML=shopItemsData.map((x)=>{
-        return ` <div class="items" id:${x.id}>
+        return `<div class="items" id=product-id-${x.id}>
         <img src=${x.img} width="221rem" alt="">
         <div class="details">
             <h2>${x.name}</h2>
@@ -41,9 +41,9 @@ let generateShop=()=>{
         <div class="price-quantity">
             <h2>$ ${x.price}</h2>
             <div class="buttons">
-                <i class="bi bi-dash-lg"></i>
-                <div id:${x.id} class="quantity">0</div>
-                <i class="bi bi-plus-lg"></i>
+                <i onclick="decrement(${x.id})" class="bi bi-dash-lg"></i>
+                <div id=${x.id} class="quantity">0</div>
+                <i onclick="increment(${x.id})" class="bi bi-plus-lg"></i>
             </div>
         </div>
     </div>`
@@ -51,4 +51,32 @@ let generateShop=()=>{
 }
 generateShop();
 
-increment()
+let increment=(id)=>{
+    let selectedItem=id;
+    let search=basket.find((x)=>{
+        return x.id===selectedItem.id;
+    })
+    if(search===undefined){
+        basket.push({
+            id:selectedItem.id,
+            item:1
+        })
+    }
+    else{
+        search.item+=1;
+    }
+    console.log(basket);
+};
+let decrement=(id)=>{
+    let selectedItem=id;
+    let search=basket.find((x)=>{
+        return x.id===selectedItem.id;
+    })
+    if(search===undefined){
+    }
+    else{
+        search.item-=1;
+    }
+    console.log(basket);
+};
+
