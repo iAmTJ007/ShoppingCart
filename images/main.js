@@ -72,7 +72,7 @@ let decrement=(id)=>{
     let search=basket.find((x)=>{
         return x.id===selectedItem.id;
     })
-    if(search===undefined){
+    if(search===undefined || search.item<=0){
     }
     else{
         search.item-=1;
