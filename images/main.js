@@ -83,5 +83,14 @@ let decrement=(id)=>{
 let update=(id)=>{
     let search=basket.find((x)=>x.id===id.id);
     document.getElementById(id.id).innerHTML=search.item;
+    calculation();
 };
+let calculation=()=>{
+    let count=0;
+    basket.map((x)=>{
+        count=count+x.item;
+    })
+    let cartAmount=document.getElementById('cartAmount');
+    cartAmount.innerHTML=count;
+}
 
