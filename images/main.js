@@ -44,7 +44,7 @@ let generateShop=()=>{
             <h2>$ ${x.price}</h2>
             <div class="buttons">
                 <i onclick="decrement(${x.id})" class="bi bi-dash-lg"></i>
-                <div id=${x.id} class="quantity">${search.item}</div>
+                <div id=${x.id} class="quantity">${search.item || 0}</div>
                 <i onclick="increment(${x.id})" class="bi bi-plus-lg"></i>
             </div>
         </div>
@@ -77,15 +77,25 @@ let decrement=(id)=>{
     if(search===undefined || search.item<=0){
         return;
     }
+    if(search.item==1){
+        basket.splice(basket.indexOf(search),1);
+        search.item=0;
+    }
     else{
         search.item-=1;
-    }
+    } 
     update(id);
 };
 let update=(id)=>{
     localStorage.setItem("data",JSON.stringify(basket));
     let search=basket.find((x)=>x.id===id.id);
-    document.getElementById(id.id).innerHTML=search.item;
+    if(search!==undefined){
+        document.getElementById(id.id).innerHTML=search.item;
+    }
+    else{
+        document.getElementById(id.id).innerHTML=0;
+    }
+    
     calculation();
 };
 let calculation=()=>{
