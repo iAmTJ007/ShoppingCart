@@ -18,21 +18,7 @@ let generateCartItems=()=>{
             let id=x.id;
             basket.find((x)=>{
                 if(x.id===id){
-                    cart.innerHTML=`<div class="items" id=product-id-${x.id}>
-                    <img src=${x.img} width="221rem" alt="">
-                    <div class="details">
-                        <h2>${x.name}</h2>
-                        <p>${x.desc}</p>
-                    </div>
-                    <div class="price-quantity">
-                        <h2>$ ${x.price}</h2>
-                        <div class="buttons">
-                            <i onclick="decrement(${x.id})" class="bi bi-dash-lg"></i>
-                            <div id=${x.id} class="quantity">${search.item || 0}</div>
-                            <i onclick="increment(${x.id})" class="bi bi-plus-lg"></i>
-                        </div>
-                    </div>
-                </div>`
+                    cart.innerHTML=``
                 }
             })
         }
