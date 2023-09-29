@@ -10,19 +10,26 @@ let calculation=()=>{
 calculation();
 
 let label=document.getElementById('label');
-let cart=document.getElementById('cart');
+let cart2=document.getElementById('cart2');
 let generateCartItems=()=>{
     
     if(basket.length!==0){
-        shopItemsData.map((x)=>{
-            let id=x.id;
-            basket.find((x)=>{
-                if(x.id===id){
-                    cart.innerHTML=``
-                }
+        basket.forEach((x)=>{
+            let {id,item}=x;
+            let shopitem=shopItemsData.find((x)=>x.id===id);
+            if(shopitem){
+                let {name,price,img,desc}=shopitem;
+                let newDiv=document.createElement('div');
+                newDiv.innerHTML=`<div class="item" id="item-${id}">
+                                        <img src="${img}" alt="" height="120rem" width="auto">
+                                            <div class="side" id="side-${id}">
+                                                <h3>${name}</h3>
+                                                <h3>${item*price}</h3>
+                                            </div>
+                                    </div>`
+                cart2.appendChild(newDiv);
+            }           
             })
-        }
-        )
     }
     else{
         label.innerHTML=`

@@ -13,3 +13,20 @@ button{
 button:hover{
     cursor: pointer;
 }
+.cart2{
+    margin-left: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    
+}
+
+.item{
+    font-size: 1.2rem;
+    display: flex;  
+    gap: 1rem;
+    width: 30rem;
+    border: 2px solid #212529;
+    
+    
+}
